@@ -185,70 +185,9 @@
 <p>4.命名要求</p>
 <p>Redis对于键的命名并没有强制的要求，但比较好的实践是用“对象类型：对象ID：对象属性”来命名一个键，如使用键user:1:friends来存储ID为1的用户的好友列表。对于多个单词则推荐使用“.”分割。<br>在redis-cli中容易输入，无需使用双引号包裹。</p>
 <hr>
-<p>##数据类型</p>
-<p>###字符串类型</p>
-<p>1.自增，自减<br>incrby bar 2   //自动增加，增量为2，如果不是整数则出错</p>
-<p>&lt;2<br>incrby bar 3   //自动增加，增量为2</p>
-<p>&lt;5<br>incr   bar     //自动增加，增量为1，如果不是整数则出错</p>
-<p>&lt;6<br>decrby bar 2<br>decr bar</p>
-<p>incrbyfloat bar 2.7  //增加指定浮点数</p>
-<p>2.添加<br>set key hello<br>mset key1 v1 key2 v2 key3 v3<br>append key “ world!”  //追加，有引号是因为出现了空格</p>
-<p>3.获取<br>strlen key   //返回键值的长度<br>mget key1 key3</p>
-<p>4.位操作，一个字节八位（bit）<br>set foo bar<br>getbit foo 0   //返回二进制表示的foo索引为0的二进制的值<br>getbit foo 6   //返回二进制表示的foo索引为6的二进制的值<br>getbit foo 100000  //超出返回0<br>setbit foo 6 0  //设置索引为6的值为0<br>bitcount foo    //统计二进制表示中1的个数<br>bitcount foo 0 1 //统计前两个字节中（fo）二进制表示中1的个数</p>
-<p>set foo1 bar<br>set foo2 bar<br>bitop or res foo1 foo2   //结果保存到res中<br>get res</p>
-<p>e:使用多个字符串类型键存储一个对象<br>post:42:title      第一篇日志<br>post:42:author     小白<br>post:42:time       2012年9月21日<br>post:42:content    今天是星期五，…</p>
-<ul>
-<li>实践</li>
-</ul>
-<p>1.文章访问量统计：<br>我们为每篇文章使用一个名为post：文章ID：page.view的键来记录文章的访问量。每次访问文章的时候使用INCR命令使用相应的键值递增<br>2.生成自增ID：<br>我们用user：count来存储当前类型对象的数量，没增加一个新对象时都使用INCR命令递增改键的值。<br>3.存储文章数据：<br>我们将一篇博客文章的标题、正文、作者与发布时间等多个元素使用序列化函数转换成一个字符串。<br>字符串类型键还可以存储二进制数据。MessagePack序列化的结果是二进制格式，占用空间更小。</p>
-<hr>
-<p>###散列类型<br>1.命令：<br>hset key field value<br>hget key field<br>hmset key f1 v1  f2 v2  f3 v3</p>
-<p>hdel key f1 f2 f3<br>hdel car price</p>
-<p>hmget key f1 f3<br>hgetall key  //获取key键中所有字段和值<br>hkeys key    //获取key中所有字段<br>hvals key    //获取key中所有值<br>hlen key    //获取key中字段数量</p>
-<p>hexists key f1  //判断key键中f1字段是否存在<br>hsetnx key field value  //nx:if not exists  如果已经存在，不执行任何操作。不存在则写入。<br>hincrby person score 60</p>
-<p>e:<br>hset car price 500<br>hset car name BMW<br>hget car name<br>hmget car price name<br>hgetall car<br>hset car model C200<br>hexists car model</p>
-<ul>
-<li>实践</li>
-</ul>
-<p>1.存储文章数据<br>e：使用一个散列类型键存储一个对象</p>
-<p>post:32<br>: title 第一篇日志<br>: author 小白<br>: time    2012年9月11日<br>: content    见天是星期五，…</p>
-<hr>
-<p>###列表类型<br>可以实现文章的分页功能</p>
-<p>1.命令：<br>lpush key v1 v2 v3<br>rpush key v1 v2 v3<br>lpush numbers 2 3<br>lset numbers 1 7 //在索引值为1的位置添加7<br>linsert numbers after 7 3  //7后面插入3<br>linsert numbers before 2 1 //2前面插入1<br>lpop key<br>rpop key<br>rpoplpush lista listb  //从lista到listb</p>
-<p>lrem key count value<br>lrem numbers -1 2  //从右边开始删除1个2<br>ltrim numbers 1 3  //只留下索引为1 2  3 （1到3）的值</p>
-<p>llen key<br>llen numbers<br>lindex numbers 0   //获取number中索引值为0的值</p>
-<p>lrange key start stop<br>lrange numbers 0 2<br>lrange numbers -2 -1</p>
-<ul>
-<li>实践</li>
-</ul>
-<p>存储文章ID列表：<br>我们使用列表类型键posts:list记录文章ID列表，当发布新文章时使用lpush命令把新文章的ID加入这个列表中，另外删除文章时也要记得把列表中的文章ID删除，就像这样：lrem post:list 1 文章id（删除id为&lt;文章id&gt;的文章）</p>
-<p>缺点：<br>1）散列类型没有类似字符串类型的mget命令那样可以通过一条命令同时获得多个键的键值的版本，所以对于每个文章ID都需要请求一次数据库，也就都会产生一次往返时延，之后我们会介绍使用管道和脚本来优化这个问题。<br>2）修改文章时，需要修改post:文章ID  中的time字段，还需要按照实际的发布时间重新排列posts:list中的元素顺序，而这一操作相对比较繁琐。<br>3）文章数量较多时访问中间的页面性能较差。</p>
-<p>存储评论列表：<br>在博客中如果不允许访客修改自己发表的评论，还可以考虑使用列表类型键存储文章的评论。将一条评论的各个元素序列化成字符串后作为列表类型键中的元素来存储。<br>我们使用列表类型键  post:文章ID:comments 来存储某个文章的所有评论。 </p>
-<hr>
-<p>###集合类型<br>    集合类型的常用操作时向集合中加入或删除元素、判断某个元素是否存在等，由于集合类型在Redis内部是使用值为空的散列表（hash table）实现的，所以这些操作的时间复杂度都是O（1）。最方便的是多个集合类型键之间还可以进行并集、交集和差集运算，稍后就会看到灵活运用这一特性带来的便利。</p>
-<p>1.命令<br>sadd letters a<br>sadd letters a b c<br>srem letters c d</p>
-<p>smembers letters<br>sdiff seta setb setc  //差集<br>sinsert seta setb     //交集<br>sunion seta setb      //并集</p>
-<p>sdiffstore destination key<br>sinterstore destination key<br>sunionstore destination key</p>
-<p>srandmember letters  //随机从集合中获取一个元素<br>srandmember letters 3</p>
-<ul>
-<li>实践</li>
-</ul>
-<p>对每篇文章使用键名为 post:文章ID:tags 的键存储该篇文章的标签。<br>sadd post:42:tags,闲言碎语，技术文章，Java</p>
-<p>找到同时属于“java”、“mysql”、和“redis”这三个标签的文章：三个集合取交集</p>
-<hr>
-<p>###有序集合类型<br>    有序集合类型在某些方面和列表类型有些相似。<br>1）二者都是有序的。<br>2）二者都可以获得某一范围的元素。</p>
-<pre><code>但是二者有着很大的区别，这使得他们的应用场景也是不同的。
-</code></pre><p>1）列表类型是通过链表实现的，获取靠近两端的数据速度极快，而当元素增多后，访问中间数据的速度回较慢，所以它更加适合实现如“新鲜事”或“日志”这样很少访问中间元素的应用。<br>2）有序集合类型是使用散列表和跳跃表实现的，所以即使读取位于中间部分的数据速度也会很快（时间复杂度是O（log（N）））。<br>3）列表中不能简单地调整某个元素的位置，但是有序集合可以（通过更改这个元素的分数）。<br>4）有序集合要比列表类型更耗费内存。</p>
-<p>1.命令：<br>zadd scoreboard 89 tom 67 peter 100 david<br>zscore scoreboard tom<br>zrange scoreboard 0 2</p>
-<p>zrange scoreboard 0 -1 withscores</p>
-<p>zrangebyscore scoreboard 80 100  //80 到100之间<br>zrangebyscore scoreboard 80 (100 //不包括100<br>zrangebyscore scoreboard (80 +inf  //80以上<br>zcount scoreboard 90 100<br>zrank scoreboard peter   //获取peter的排名，升序<br>zrevrank scoreboard peter  //降序</p>
-<p>zrangebyscore scoreboard 60 +inf limit 1 3  //分数高于60的第二个人开始的3个人。<br>zrenrangebyscore scoreboard 100 0 limit 0 3  //分数小于100</p>
-<p>zincrby scoreboard 4 jerry   //jerry 加4<br>zincrby socreboard -4 jerry  //jerry 减4</p>
-<ul>
-<li>实践<br>通过有序集合可以实现文章按照点击量排序。</li>
-</ul>
-<hr>
-
+        
+          <a class="article-more-a" href="/2017/07/05/redis/#more">more >></a>
+        
       
 
       

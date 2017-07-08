@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/05/redis/index.html">
 <meta property="og:site_name" content="Qi-Qi(DustHeart)的博客">
 <meta property="og:description" content="Redis入门指南前三章读书笔记此笔记的参照书籍为Redis入门指南，笔记只整理了前三章的内容。重点为redis的五中数据类型及其命令。 ###目录[TOC]  设计者：Salvatore Sanfilippo  ##特性1.内存存储和持久化       Redis数据库中的所有数据都存储在内存中。由于内存的读写速度远快于硬盘，在一台普通的笔记本电脑上，Redis可以在一秒内读写超过十万个键值。">
-<meta property="og:updated_time" content="2017-07-08T02:03:07.196Z">
+<meta property="og:updated_time" content="2017-07-08T03:54:25.616Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis读书笔记">
 <meta name="twitter:description" content="Redis入门指南前三章读书笔记此笔记的参照书籍为Redis入门指南，笔记只整理了前三章的内容。重点为redis的五中数据类型及其命令。 ###目录[TOC]  设计者：Salvatore Sanfilippo  ##特性1.内存存储和持久化       Redis数据库中的所有数据都存储在内存中。由于内存的读写速度远快于硬盘，在一台普通的笔记本电脑上，Redis可以在一秒内读写超过十万个键值。">
@@ -187,6 +187,7 @@
 <p>4.命名要求</p>
 <p>Redis对于键的命名并没有强制的要求，但比较好的实践是用“对象类型：对象ID：对象属性”来命名一个键，如使用键user:1:friends来存储ID为1的用户的好友列表。对于多个单词则推荐使用“.”分割。<br>在redis-cli中容易输入，无需使用双引号包裹。</p>
 <hr>
+<a id="more"></a>
 <p>##数据类型</p>
 <p>###字符串类型</p>
 <p>1.自增，自减<br>incrby bar 2   //自动增加，增量为2，如果不是整数则出错</p>
