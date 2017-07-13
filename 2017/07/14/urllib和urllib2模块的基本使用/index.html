@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Redis读书笔记 | Qi-Qi(DustHeart)的博客</title>
+  <title>Qi-Qi(DustHeart)的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Redis入门指南前三章读书笔记此笔记的参照书籍为Redis入门指南，笔记只整理了前三章的内容。重点为redis的五中数据类型及其命令。 ###目录[TOC]  设计者：Salvatore Sanfilippo  ##特性1.内存存储和持久化       Redis数据库中的所有数据都存储在内存中。由于内存的读写速度远快于硬盘，在一台普通的笔记本电脑上，Redis可以在一秒内读写超过十万个键值。">
+  <meta name="description" content="urllib不是完整的代码，仅供查询和记忆 123456import urllibword=&amp;#123;&amp;quot;wd&amp;quot;:&amp;quot;python学习&amp;quot;print urllib.urlencode(word)&amp;quot;wd=%E4%BC%A0%E6%99%BA%E6%92%AD%E5%AE%A2&amp;quot;print urllib.unquote(&amp;quot;wd=%E4%">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redis读书笔记">
-<meta property="og:url" content="http://yoursite.com/2017/07/05/redis/index.html">
+<meta property="og:title" content="Qi-Qi(DustHeart)的博客">
+<meta property="og:url" content="http://yoursite.com/2017/07/14/urllib和urllib2模块的基本使用/index.html">
 <meta property="og:site_name" content="Qi-Qi(DustHeart)的博客">
-<meta property="og:description" content="Redis入门指南前三章读书笔记此笔记的参照书籍为Redis入门指南，笔记只整理了前三章的内容。重点为redis的五中数据类型及其命令。 ###目录[TOC]  设计者：Salvatore Sanfilippo  ##特性1.内存存储和持久化       Redis数据库中的所有数据都存储在内存中。由于内存的读写速度远快于硬盘，在一台普通的笔记本电脑上，Redis可以在一秒内读写超过十万个键值。">
-<meta property="og:updated_time" content="2017-07-08T03:54:25.616Z">
+<meta property="og:description" content="urllib不是完整的代码，仅供查询和记忆 123456import urllibword=&amp;#123;&amp;quot;wd&amp;quot;:&amp;quot;python学习&amp;quot;print urllib.urlencode(word)&amp;quot;wd=%E4%BC%A0%E6%99%BA%E6%92%AD%E5%AE%A2&amp;quot;print urllib.unquote(&amp;quot;wd=%E4%">
+<meta property="og:updated_time" content="2017-07-13T16:32:53.386Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Redis读书笔记">
-<meta name="twitter:description" content="Redis入门指南前三章读书笔记此笔记的参照书籍为Redis入门指南，笔记只整理了前三章的内容。重点为redis的五中数据类型及其命令。 ###目录[TOC]  设计者：Salvatore Sanfilippo  ##特性1.内存存储和持久化       Redis数据库中的所有数据都存储在内存中。由于内存的读写速度远快于硬盘，在一台普通的笔记本电脑上，Redis可以在一秒内读写超过十万个键值。">
+<meta name="twitter:title" content="Qi-Qi(DustHeart)的博客">
+<meta name="twitter:description" content="urllib不是完整的代码，仅供查询和记忆 123456import urllibword=&amp;#123;&amp;quot;wd&amp;quot;:&amp;quot;python学习&amp;quot;print urllib.urlencode(word)&amp;quot;wd=%E4%BC%A0%E6%99%BA%E6%92%AD%E5%AE%A2&amp;quot;print urllib.unquote(&amp;quot;wd=%E4%">
   
     <link rel="alternative" href="/atom.xml" title="Qi-Qi(DustHeart)的博客" type="application/atom+xml">
   
@@ -153,104 +153,32 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-redis" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-urllib和urllib2模块的基本使用" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Redis读书笔记
-    </h1>
-  
-
-        
-        <a href="/2017/07/05/redis/" class="archive-article-date">
-  	<time datetime="2017-07-05T15:52:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-05</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Redis入门指南前三章读书笔记"><a href="#Redis入门指南前三章读书笔记" class="headerlink" title="Redis入门指南前三章读书笔记"></a>Redis入门指南前三章读书笔记</h1><p>此笔记的参照书籍为<a href="https://github.com/benweet/stackedit" target="_blank" rel="external">Redis入门指南</a>，笔记只整理了前三章的内容。重点为redis的五中数据类型及其命令。</p>
-<p>###目录<br>[TOC]</p>
-<ul>
-<li><strong>设计者：Salvatore Sanfilippo</strong></li>
-</ul>
-<p>##特性<br>1.内存存储和持久化<br>       Redis数据库中的所有数据都存储在内存中。由于内存的读写速度远快于硬盘，在一台普通的笔记本电脑上，Redis可以在一秒内读写超过十万个键值。<br>        将数据存储在内存中也有问题，例如，程序退出后内存中的数据会丢失。不过Redis提供了对持久化的支持，即可以将内存中的数据异步写入到硬盘中，同时不影响继续提供服务。</p>
-<hr>
-<p>2.功能丰富<br>1）可以为每个键设置生存时间，使得Redis可以作为缓存系统来使用。<br>2）Redis和缓存系统Memcached的优劣：Redis是单线程模型，而Memcached支持多线程，所以在多核服务器上后者性能更高一些。如果需要用到高级的数据类型或是持久化等功能，Redis将会是Memcached很好的替代品。<br>3）作为缓存系统，Redis还可以限定数据占用的最大内存空间，在数据达到空间限制后可以按照一定的规则自动淘汰不需要的键。<br>4）Redis的列表类型键可以用来实现队列，并且支持阻塞式读取，可以很容易地实现一个高性能的有限级队列。</p>
-<hr>
-<p>3.特点<br>1）Redis提供了一百多个命令，但是常用的却只有十几个，并且每个命令都很容易记忆<br>2）Redis提供了几十种不同编程语言的客户端库<br>3）Redis使用C语言开发，代码量只有3万多行，这降低了用户通过修改Redis源代码来使之更适合自己项目需要的门槛。<br>4）Redis是开源的。<br>5）包括INCR在内的所有Redis命令都是原子操作。</p>
-<hr>
-<p>4.命名要求</p>
-<p>Redis对于键的命名并没有强制的要求，但比较好的实践是用“对象类型：对象ID：对象属性”来命名一个键，如使用键user:1:friends来存储ID为1的用户的好友列表。对于多个单词则推荐使用“.”分割。<br>在redis-cli中容易输入，无需使用双引号包裹。</p>
-<hr>
-<a id="more"></a>
-<p>##数据类型</p>
-<p>###字符串类型</p>
-<p>1.自增，自减<br>incrby bar 2   //自动增加，增量为2，如果不是整数则出错</p>
-<p>&lt;2<br>incrby bar 3   //自动增加，增量为2</p>
-<p>&lt;5<br>incr   bar     //自动增加，增量为1，如果不是整数则出错</p>
-<p>&lt;6<br>decrby bar 2<br>decr bar</p>
-<p>incrbyfloat bar 2.7  //增加指定浮点数</p>
-<p>2.添加<br>set key hello<br>mset key1 v1 key2 v2 key3 v3<br>append key “ world!”  //追加，有引号是因为出现了空格</p>
-<p>3.获取<br>strlen key   //返回键值的长度<br>mget key1 key3</p>
-<p>4.位操作，一个字节八位（bit）<br>set foo bar<br>getbit foo 0   //返回二进制表示的foo索引为0的二进制的值<br>getbit foo 6   //返回二进制表示的foo索引为6的二进制的值<br>getbit foo 100000  //超出返回0<br>setbit foo 6 0  //设置索引为6的值为0<br>bitcount foo    //统计二进制表示中1的个数<br>bitcount foo 0 1 //统计前两个字节中（fo）二进制表示中1的个数</p>
-<p>set foo1 bar<br>set foo2 bar<br>bitop or res foo1 foo2   //结果保存到res中<br>get res</p>
-<p>e:使用多个字符串类型键存储一个对象<br>post:42:title      第一篇日志<br>post:42:author     小白<br>post:42:time       2012年9月21日<br>post:42:content    今天是星期五，…</p>
-<ul>
-<li>实践</li>
-</ul>
-<p>1.文章访问量统计：<br>我们为每篇文章使用一个名为post：文章ID：page.view的键来记录文章的访问量。每次访问文章的时候使用INCR命令使用相应的键值递增<br>2.生成自增ID：<br>我们用user：count来存储当前类型对象的数量，没增加一个新对象时都使用INCR命令递增改键的值。<br>3.存储文章数据：<br>我们将一篇博客文章的标题、正文、作者与发布时间等多个元素使用序列化函数转换成一个字符串。<br>字符串类型键还可以存储二进制数据。MessagePack序列化的结果是二进制格式，占用空间更小。</p>
-<hr>
-<p>###散列类型<br>1.命令：<br>hset key field value<br>hget key field<br>hmset key f1 v1  f2 v2  f3 v3</p>
-<p>hdel key f1 f2 f3<br>hdel car price</p>
-<p>hmget key f1 f3<br>hgetall key  //获取key键中所有字段和值<br>hkeys key    //获取key中所有字段<br>hvals key    //获取key中所有值<br>hlen key    //获取key中字段数量</p>
-<p>hexists key f1  //判断key键中f1字段是否存在<br>hsetnx key field value  //nx:if not exists  如果已经存在，不执行任何操作。不存在则写入。<br>hincrby person score 60</p>
-<p>e:<br>hset car price 500<br>hset car name BMW<br>hget car name<br>hmget car price name<br>hgetall car<br>hset car model C200<br>hexists car model</p>
-<ul>
-<li>实践</li>
-</ul>
-<p>1.存储文章数据<br>e：使用一个散列类型键存储一个对象</p>
-<p>post:32<br>: title 第一篇日志<br>: author 小白<br>: time    2012年9月11日<br>: content    见天是星期五，…</p>
-<hr>
-<p>###列表类型<br>可以实现文章的分页功能</p>
-<p>1.命令：<br>lpush key v1 v2 v3<br>rpush key v1 v2 v3<br>lpush numbers 2 3<br>lset numbers 1 7 //在索引值为1的位置添加7<br>linsert numbers after 7 3  //7后面插入3<br>linsert numbers before 2 1 //2前面插入1<br>lpop key<br>rpop key<br>rpoplpush lista listb  //从lista到listb</p>
-<p>lrem key count value<br>lrem numbers -1 2  //从右边开始删除1个2<br>ltrim numbers 1 3  //只留下索引为1 2  3 （1到3）的值</p>
-<p>llen key<br>llen numbers<br>lindex numbers 0   //获取number中索引值为0的值</p>
-<p>lrange key start stop<br>lrange numbers 0 2<br>lrange numbers -2 -1</p>
-<ul>
-<li>实践</li>
-</ul>
-<p>存储文章ID列表：<br>我们使用列表类型键posts:list记录文章ID列表，当发布新文章时使用lpush命令把新文章的ID加入这个列表中，另外删除文章时也要记得把列表中的文章ID删除，就像这样：lrem post:list 1 文章id（删除id为&lt;文章id&gt;的文章）</p>
-<p>缺点：<br>1）散列类型没有类似字符串类型的mget命令那样可以通过一条命令同时获得多个键的键值的版本，所以对于每个文章ID都需要请求一次数据库，也就都会产生一次往返时延，之后我们会介绍使用管道和脚本来优化这个问题。<br>2）修改文章时，需要修改post:文章ID  中的time字段，还需要按照实际的发布时间重新排列posts:list中的元素顺序，而这一操作相对比较繁琐。<br>3）文章数量较多时访问中间的页面性能较差。</p>
-<p>存储评论列表：<br>在博客中如果不允许访客修改自己发表的评论，还可以考虑使用列表类型键存储文章的评论。将一条评论的各个元素序列化成字符串后作为列表类型键中的元素来存储。<br>我们使用列表类型键  post:文章ID:comments 来存储某个文章的所有评论。 </p>
-<hr>
-<p>###集合类型<br>    集合类型的常用操作时向集合中加入或删除元素、判断某个元素是否存在等，由于集合类型在Redis内部是使用值为空的散列表（hash table）实现的，所以这些操作的时间复杂度都是O（1）。最方便的是多个集合类型键之间还可以进行并集、交集和差集运算，稍后就会看到灵活运用这一特性带来的便利。</p>
-<p>1.命令<br>sadd letters a<br>sadd letters a b c<br>srem letters c d</p>
-<p>smembers letters<br>sdiff seta setb setc  //差集<br>sinsert seta setb     //交集<br>sunion seta setb      //并集</p>
-<p>sdiffstore destination key<br>sinterstore destination key<br>sunionstore destination key</p>
-<p>srandmember letters  //随机从集合中获取一个元素<br>srandmember letters 3</p>
-<ul>
-<li>实践</li>
-</ul>
-<p>对每篇文章使用键名为 post:文章ID:tags 的键存储该篇文章的标签。<br>sadd post:42:tags,闲言碎语，技术文章，Java</p>
-<p>找到同时属于“java”、“mysql”、和“redis”这三个标签的文章：三个集合取交集</p>
-<hr>
-<p>###有序集合类型<br>    有序集合类型在某些方面和列表类型有些相似。<br>1）二者都是有序的。<br>2）二者都可以获得某一范围的元素。</p>
-<pre><code>但是二者有着很大的区别，这使得他们的应用场景也是不同的。
-</code></pre><p>1）列表类型是通过链表实现的，获取靠近两端的数据速度极快，而当元素增多后，访问中间数据的速度回较慢，所以它更加适合实现如“新鲜事”或“日志”这样很少访问中间元素的应用。<br>2）有序集合类型是使用散列表和跳跃表实现的，所以即使读取位于中间部分的数据速度也会很快（时间复杂度是O（log（N）））。<br>3）列表中不能简单地调整某个元素的位置，但是有序集合可以（通过更改这个元素的分数）。<br>4）有序集合要比列表类型更耗费内存。</p>
-<p>1.命令：<br>zadd scoreboard 89 tom 67 peter 100 david<br>zscore scoreboard tom<br>zrange scoreboard 0 2</p>
-<p>zrange scoreboard 0 -1 withscores</p>
-<p>zrangebyscore scoreboard 80 100  //80 到100之间<br>zrangebyscore scoreboard 80 (100 //不包括100<br>zrangebyscore scoreboard (80 +inf  //80以上<br>zcount scoreboard 90 100<br>zrank scoreboard peter   //获取peter的排名，升序<br>zrevrank scoreboard peter  //降序</p>
-<p>zrangebyscore scoreboard 60 +inf limit 1 3  //分数高于60的第二个人开始的3个人。<br>zrenrangebyscore scoreboard 100 0 limit 0 3  //分数小于100</p>
-<p>zincrby scoreboard 4 jerry   //jerry 加4<br>zincrby socreboard -4 jerry  //jerry 减4</p>
-<ul>
-<li>实践<br>通过有序集合可以实现文章按照点击量排序。</li>
-</ul>
-<hr>
+        <h1 id="urllib"><a href="#urllib" class="headerlink" title="urllib"></a>urllib</h1><p>不是完整的代码，仅供查询和记忆</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">import urllib</div><div class="line">word=&#123;&quot;wd&quot;:&quot;python学习&quot;</div><div class="line">print urllib.urlencode(word)</div><div class="line">&quot;wd=%E4%BC%A0%E6%99%BA%E6%92%AD%E5%AE%A2&quot;</div><div class="line">print urllib.unquote(&quot;wd=%E4%BC%A0%E6%99%BA%E6%92%AD%E5%AE%A2&quot;)</div><div class="line">wd=python学习</div></pre></td></tr></table></figure>
+<h1 id="urllib2"><a href="#urllib2" class="headerlink" title="urllib2"></a>urllib2</h1><p>import urllib2</p>
+<h2 id="url"><a href="#url" class="headerlink" title="url"></a>url</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">url = &quot;http://www.baidu.com/s&quot;</div><div class="line">word = &#123;&quot;wd&quot;:&quot;python学习&quot;&#125;</div><div class="line">word = urllib.urlencode(word)</div><div class="line">newurl = url + &quot;? +word</div></pre></td></tr></table></figure>
+<h2 id="随机添加、修改User-Agent"><a href="#随机添加、修改User-Agent" class="headerlink" title="随机添加、修改User-Agent"></a>随机添加、修改User-Agent</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&quot;User-Agent&quot;: </div><div class="line">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36&quot;</div><div class="line">ua_list = [</div><div class="line">    &quot;Mozilla/5.0 (Windows NT 6.1; ) Apple.... &quot;,</div><div class="line">    &quot;Mozilla/5.0 (X11; CrOS i686 2268.111.0)... &quot;,</div><div class="line">    &quot;Mozilla/5.0 (Macintosh; U; PPC Mac OS X.... &quot;,</div><div class="line">    &quot;Mozilla/5.0 (Macintosh; Intel Mac OS... &quot;</div><div class="line">]</div><div class="line">user_agent = random.choice(ua_list)</div></pre></td></tr></table></figure>
+<h2 id="随机获取代理"><a href="#随机获取代理" class="headerlink" title="随机获取代理"></a>随机获取代理</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">proxy_list = [</div><div class="line">    &#123;&quot;http&quot; : &quot;124.88.67.81:80&quot;&#125;,</div><div class="line">    &#123;&quot;http&quot; : &quot;124.88.67.81:80&quot;&#125;,</div><div class="line">    &#123;&quot;http&quot; : &quot;124.88.67.81:80&quot;&#125;,</div><div class="line">    &#123;&quot;http&quot; : &quot;124.88.67.81:80&quot;&#125;,</div><div class="line">    &#123;&quot;http&quot; : &quot;124.88.67.81:80&quot;&#125;</div><div class="line">]</div><div class="line"># 随机选择一个代理</div><div class="line">proxy = random.choice(proxy_list)</div></pre></td></tr></table></figure>
+<h2 id="data"><a href="#data" class="headerlink" title="data"></a>data</h2><p>发送POST请求时，需要特别注意headers的一些属性：<br>Content-Length: 144： 是指发送的表单数据长度为144，也就是字符个数是144个。<br>X-Requested-With: XMLHttpRequest ：表示Ajax异步请求。<br>Content-Type: application/x-www-form-urlencoded ： 表示浏览器提交 Web 表单时使用，表单数据会按照 name1=value1&amp;name2=value2 键值对形式进行编码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">formdata = &#123;</div><div class="line">    &quot;type&quot;:&quot;AUTO&quot;,</div><div class="line">    &quot;i&quot;:&quot;i love python&quot;,</div><div class="line">    &quot;doctype&quot;:&quot;json&quot;,</div><div class="line">    &quot;xmlVersion&quot;:&quot;1.8&quot;,</div><div class="line">    &quot;keyfrom&quot;:&quot;fanyi.web&quot;,</div><div class="line">    &quot;ue&quot;:&quot;UTF-8&quot;,</div><div class="line">    &quot;action&quot;:&quot;FY_BY_ENTER&quot;,</div><div class="line">    &quot;typoResult&quot;:&quot;true&quot;</div><div class="line">&#125;</div><div class="line">data = urllib.urlencode(formdata)</div></pre></td></tr></table></figure></p>
+<h2 id="header-headers-cookie"><a href="#header-headers-cookie" class="headerlink" title="header,headers,cookie"></a>header,headers,cookie</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">header = &#123;&quot;User-Agent&quot;:&quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0;&quot;&#125;</div><div class="line">request.get_header(&quot;User-Agent&quot;)</div><div class="line">request.add_header(&quot;Connection&quot;,&quot;keep-alive&quot;)</div><div class="line">opener.addeaders = [(&quot;User-Agent&quot;, &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36&quot;)]</div><div class="line"># addheaders 接受一个列表，里面每个元素都是一个headers信息的元祖,opener将附带headers信息</div><div class="line"></div><div class="line">headers = &#123;</div><div class="line">    &quot;Host&quot;:&quot;www.renren.com&quot;,</div><div class="line">    &quot;Connection&quot;:&quot;keep-alive&quot;,</div><div class="line">    &quot;Upgrade-Insecure-Requests&quot;:&quot;1&quot;,</div><div class="line">    &quot;User-Agent&quot;:&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36&quot;,</div><div class="line">    &quot;Accept&quot;:&quot;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&quot;,</div><div class="line">    &quot;Accept-Language&quot;:&quot;zh-CN,zh;q=0.8,en;q=0.6&quot;,</div><div class="line"></div><div class="line">    # 便于终端阅读，表示不支持压缩文件</div><div class="line">    # Accept-Encoding: gzip, deflate, sdch,</div><div class="line"></div><div class="line">    # 重点：这个Cookie是保存了密码无需重复登录的用户的Cookie，这个Cookie里记录了用户名，密码(通常经过RAS加密)</div><div class="line">    &quot;Cookie&quot;: &quot;anonymid=ixrna3fysufnwv; depovince=GW; _r01_=1; JSESSIONID=abcmaDhEdqIlM7riy5iMv; jebe_key=f6fb270b-d06d-42e6-8b53-e67c3156aa7e%7Cc13c37f53bca9e1e7132d4b58ce00fa3%7C1484060607478%7C1%7C1484060607173; jebecookies=26fb58d1-cbe7-4fc3-a4ad-592233d1b42e|||||; ick_login=1f2b895d-34c7-4a1d-afb7-d84666fad409; _de=BF09EE3A28DED52E6B65F6A4705D973F1383380866D39FF5; p=99e54330ba9f910b02e6b08058f780479; ap=327550029; first_login_flag=1; ln_uact=mr_mao_hacker@163.com; ln_hurl=http://hdn.xnimg.cn/photos/hdn521/20140529/1055/h_main_9A3Z_e0c300019f6a195a.jpg; t=214ca9a28f70ca6aa0801404dda4f6789; societyguester=214ca9a28f70ca6aa0801404dda4f6789; id=327550029; xnsid=745033c5; ver=7.0; loginfrom=syshome&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><p>大多数情况下，我们只用CookieJar()，如果需要和本地文件交互，就用 MozillaCookjar() 或 LWPCookieJar()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">import cookielib</div><div class="line">cookiejar  = cookielib.Cooliejar()</div><div class="line">handler = urllib2.HTTPCookieProssor(cookiejar)</div><div class="line">opener = urllib2.build_opener(handler)</div><div class="line">opener.open(&quot;http://www.baidu.com&quot;)</div></pre></td></tr></table></figure></p>
+<h2 id="cookie写入文件"><a href="#cookie写入文件" class="headerlink" title="cookie写入文件"></a>cookie写入文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">filename = &quot;cookie.txt&quot;</div><div class="line">cookijar = cookielib.MozillaCookiejar(filename)</div><div class="line">handler = urllib2.HTTPCookieProcessor(cookiejar)</div><div class="line">opener = urllib2.build_opener(handler)</div><div class="line">response = opener.open(&quot;http://www.baidu.com&quot;)</div><div class="line">cookiejar.save()</div></pre></td></tr></table></figure>
+<h2 id="从文件中获取cookie"><a href="#从文件中获取cookie" class="headerlink" title="从文件中获取cookie"></a>从文件中获取cookie</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">cookiejar = cookielib.MozillaCookiejar()</div><div class="line">cookiejar.load(&quot;cookie.txt&quot;)</div><div class="line">handler = urllib2.HTTPCookieProcessor(cookiejar)</div><div class="line">opener = urllib2.build_opener(handler)</div><div class="line">response = opener.open(&quot;http://www.baidu.com&quot;)</div><div class="line"></div><div class="line">cookieStr = &quot; &quot;</div><div class="line">for item in cookiejar:</div><div class="line">cookieStr = cookieStr + item.name + &quot;=&quot; + item.value + &quot;;&quot;</div><div class="line">##  舍去最后一位的分号</div><div class="line">print cookieStr[:-1]</div></pre></td></tr></table></figure>
+<h2 id="HTTPPasswordMgrWithDefaultRealm-密码管理对象-验证-代理-密码"><a href="#HTTPPasswordMgrWithDefaultRealm-密码管理对象-验证-代理-密码" class="headerlink" title="HTTPPasswordMgrWithDefaultRealm() 密码管理对象 验证 代理  密码"></a>HTTPPasswordMgrWithDefaultRealm() 密码管理对象 验证 代理  密码</h2><p>HTTPPasswordMgrWithDefaultRealm()类将创建一个密码管理对象，用来保存 HTTP 请求相关的用户名和密码，主要应用两个场景：</p>
+<p>验证代理授权的用户名和密码 (ProxyBasicAuthHandler())<br>验证Web客户端的的用户名和密码 (HTTPBasicAuthHandler())<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">user = &quot;test&quot;</div><div class="line">passwd = &quot;123456&quot;</div><div class="line">proxyserver = &quot;61.158.163..130:16816&quot;</div><div class="line">passwdmgr = urllib2.HTPPasswordMgrWithDefaultRealm()</div><div class="line">passwdmgr.add_password(None,proxyserver,user,passwd)</div><div class="line">proxyauth_handler = urllib.ProxyBasicAuthHandler(passwdmgr)</div><div class="line"></div><div class="line">user = &quot;test&quot;</div><div class="line">passwd = &quot;123456&quot;</div><div class="line">webserver = &quot;http://192.168.199.107&quot;</div><div class="line">passwdmgr = urllib2.HTTPPasswordMgrWithDefaultRealm()</div><div class="line">passwdmgr.add_password(None,webserver,user,passwd)</div><div class="line">httpauth_handler = urllib2.HTTPBasicAuthHandler(passwdmgr)</div></pre></td></tr></table></figure></p>
+<h2 id="handler"><a href="#handler" class="headerlink" title="handler"></a>handler</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">http_hander = urllib2.HTTPHandler()</div><div class="line">https_hander = urllib2.HTTPSHandler()</div><div class="line">http_handler = urllib2.HTTPHandler(debuglever=1)   //将 Debug Log</div></pre></td></tr></table></figure>
+<p>打开，这样程序在执行的时候，会把收包和发包的报头在屏幕上自动打印出来，方便调试，有时可以省去抓包的工作。</p>
+<p>代理<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">httpproxy_handler = urllib2.ProxyHandler(&#123;&quot;http&quot;:&quot;124.88.67.81:80&quot;&#125;)</div><div class="line">nullproxy_handler = urllib2.ProxyHandler(&#123;&#125;)</div><div class="line">httpproxy_handler = urllib2.ProxyHandler(proxy)</div></pre></td></tr></table></figure></p>
+<p>验证<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">proxyauth_handler = urllib2.ProxyBasicAuthHandler(passwdmgr)</div><div class="line">httpauth_handler = urllib2.HTTPBasicAuthHandler(passwdmgr)</div></pre></td></tr></table></figure></p>
+<p>cookie:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(import cookielib)</div><div class="line">handler = urllib2.HTTPCookieProcessor(cookiejar)</div><div class="line">opener = urllib2.build_opener(handler)</div></pre></td></tr></table></figure></p>
+<p>opener:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">opener = urllib2.build_opener(http_handler)</div><div class="line">opener.addeaders = [(&quot;User-Agent&quot;, &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36&quot;)] //addheaders 接受一个列表，里面每个元素都是一个headers信息的元祖, opener将附带headers信息</div></pre></td></tr></table></figure></p>
+<p>request:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">request = urllib2.Request(&quot;http://www.baidu.com&quot;)</div><div class="line">request = urllib2.Request(url, headers = header)</div><div class="line">request.add_header(&quot;Connection&quot;,&quot;keep-alive&quot;)</div><div class="line">request = urllib2.Request(url, data=data, headers=headers)</div></pre></td></tr></table></figure></p>
+<p>response:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">response = urllib2.urlopen(&quot;http://www.baidu.com&quot;)</div><div class="line">response = urllib2.urlopen(request)</div><div class="line">response = opener.open(request)</div><div class="line"></div><div class="line"></div><div class="line">html = response.read()</div><div class="line">print html</div></pre></td></tr></table></figure></p>
 
       
 
@@ -330,7 +258,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/05/redis/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/14/urllib和urllib2模块的基本使用/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -344,15 +272,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/07/14/urllib和urllib2模块的基本使用/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
+    <a href="/2017/07/05/redis/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Redis读书笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
